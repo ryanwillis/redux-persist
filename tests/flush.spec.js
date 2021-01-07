@@ -5,7 +5,7 @@ import sinon from 'sinon'
 
 import _ from 'lodash'
 import configureStore from 'redux-mock-store'
-import { createStore } from 'redux'
+import { createStore } from '@reduxjs/toolkit'
 
 import getStoredState from '../src/getStoredState'
 import persistReducer from '../src/persistReducer'

@@ -1,5 +1,5 @@
 declare module "redux-persist/es/persistCombineReducers" {
-  import { Action, Reducer, ReducersMapObject } from "redux";
+  import { Action, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
   import { PersistPartial } from "redux-persist/es/persistReducer";
   import { PersistConfig } from "redux-persist/es/types";
 

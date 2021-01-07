@@ -1,5 +1,5 @@
 declare module "redux-persist/es/types" {
-  import { StoreEnhancer } from "redux";
+  import { StoreEnhancer } from "@reduxjs/toolkit";
 
   interface PersistState {
     version: number;

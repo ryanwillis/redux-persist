@@ -1,8 +1,8 @@
 // @noflow
-import nodeResolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import uglify from 'rollup-plugin-uglify';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
+import { uglify } from 'rollup-plugin-uglify';
 
 const env = process.env.NODE_ENV
 const config = {
@@ -17,7 +17,7 @@ const config = {
       jsnext: true
     }),
     babel({
-      exclude: 'node_modules/**',
+      exclude: 'node_modules/**'
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env)
@@ -25,14 +25,17 @@ const config = {
   ]
 }
 
+config.plugins.forEach(plugin => {
+  plugin.meta = { rollupVersion: '5.2' };
+});
+
 if (env === 'production') {
   config.plugins.push(
     uglify({
       compress: {
         pure_getters: true,
         unsafe: true,
-        unsafe_comps: true,
-        warnings: false,
+        unsafe_comps: true
       },
     })
   )

@@ -6,7 +6,7 @@ import sinon from 'sinon'
 
 import _ from 'lodash'
 import configureStore from 'redux-mock-store'
-import { combineReducers, createStore } from 'redux'
+import { combineReducers, createStore } from '@reduxjs/toolkit'
 
 import persistReducer from '../src/persistReducer'
 import persistStore from '../src/persistStore'

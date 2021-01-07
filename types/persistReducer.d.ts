@@ -1,5 +1,5 @@
 declare module "redux-persist/es/persistReducer" {
-  import { Action, Reducer } from "redux";
+  import { Action, Reducer } from "@reduxjs/toolkit";
   import { PersistState, PersistConfig } from "redux-persist/es/types";
 
   interface PersistPartial {
@@ -13,6 +13,7 @@ declare module "redux-persist/es/persistReducer" {
    */
   // tslint:disable-next-line: strict-export-declare-modifiers
   export default function persistReducer<S, A extends Action = Action>(config: PersistConfig<S>, baseReducer: Reducer<S, A>): Reducer<S & PersistPartial, A>;
+  
 }
 
 declare module "redux-persist/lib/persistReducer" {

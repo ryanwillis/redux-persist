@@ -10,7 +10,7 @@ import type {
   RehydrateErrorType,
 } from './types'
 
-import { createStore } from 'redux'
+import { createStore } from '@reduxjs/toolkit'
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from './constants'
 
 type PendingRehydrate = [Object, RehydrateErrorType, PersistConfig]

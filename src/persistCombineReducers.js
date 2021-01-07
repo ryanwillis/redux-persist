@@ -1,6 +1,6 @@
 // @flow
 
-import { combineReducers } from 'redux'
+import { combineReducers } from '@reduxjs/toolkit'
 import persistReducer from './persistReducer'
 import autoMergeLevel2 from './stateReconciler/autoMergeLevel2'
 
