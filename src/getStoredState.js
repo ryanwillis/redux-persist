@@ -36,7 +36,7 @@ export default function getStoredState(
       } catch (err) {
         if (process.env.NODE_ENV !== 'production' && debug)
           console.log(
-            `redux-persist/getStoredState: Error restoring data ${serialized}`,
+            `reduxjs-toolkit-persist/getStoredState: Error restoring data ${serialized}`,
             err
           )
         throw err

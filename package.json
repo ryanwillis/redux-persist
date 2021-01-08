@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "./types/index.d.ts",
-  "repository": "rt2zz/redux-persist",
+  "repository": "ryanwillis/reduxjs-toolkit-persist",
   "files": [
     "es",
     "src",
@@ -20,8 +20,8 @@
     "build": "npm run flow-copy && npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -i src/index.js -o dist/redux-persist.js",
-    "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c -i src/index.js -o dist/redux-persist.min.js",
+    "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -i src/index.js -o dist/reduxjs-toolkit-persist.js",
+    "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c -i src/index.js -o dist/reduxjs-toolkit-persist.min.js",
     "clean": "rimraf es && rimraf lib",
     "flow-copy": "flow-copy-source src es && flow-copy-source src lib",
     "prepare": "npm run build",
@@ -39,7 +39,7 @@
   },
   "author": "",
   "license": "MIT",
-  "homepage": "https://github.com/rt2zz/redux-persist#readme",
+  "homepage": "https://github.com/ryanwillis/reduxjs-toolkit-persist#readme",
   "ava": {
     "files": [
       "tests/**/*.spec.js"

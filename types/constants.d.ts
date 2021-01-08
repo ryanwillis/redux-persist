@@ -1,4 +1,4 @@
-declare module "redux-persist/es/constants" {
+declare module "reduxjs-toolkit-persist/es/constants" {
   const KEY_PREFIX: 'persist:';
   const FLUSH: 'persist/FLUSH';
   const REHYDRATE: 'persist/REHYDRATE';
@@ -9,6 +9,6 @@ declare module "redux-persist/es/constants" {
   const DEFAULT_VERSION: number;
 }
 
-declare module "redux-persist/lib/constants" {
-  export * from "redux-persist/es/constants";
+declare module "reduxjs-toolkit-persist/lib/constants" {
+  export * from "reduxjs-toolkit-persist/es/constants";
 }

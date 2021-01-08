@@ -1,4 +1,4 @@
-declare module "redux-persist/es/types" {
+declare module "reduxjs-toolkit-persist/es/types" {
   import { StoreEnhancer } from "@reduxjs/toolkit";
 
   interface PersistState {
@@ -145,6 +145,6 @@ declare module "redux-persist/es/types" {
   }
 }
 
-declare module "redux-persist/lib/types" {
-  export * from "redux-persist/es/types";
+declare module "reduxjs-toolkit-persist/lib/types" {
+  export * from "reduxjs-toolkit-persist/es/types";
 }

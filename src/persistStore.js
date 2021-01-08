@@ -56,7 +56,7 @@ export default function persistStore(
     bannedKeys.forEach(k => {
       if (!!optionsToTest[k])
         console.error(
-          `redux-persist: invalid option passed to persistStore: "${k}". You may be incorrectly passing persistConfig into persistStore, whereas it should be passed into persistReducer.`
+          `reduxjs-toolkit-persist: invalid option passed to persistStore: "${k}". You may be incorrectly passing persistConfig into persistStore, whereas it should be passed into persistReducer.`
         )
     })
   }

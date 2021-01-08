@@ -23,16 +23,16 @@
 
 // This is not single module. There are many module included by reference directives.
 // tslint:disable-next-line: no-single-declare-module
-declare module "redux-persist" {
-  export { default as persistReducer } from 'redux-persist/es/persistReducer';
-  export { default as persistCombineReducers } from 'redux-persist/es/persistCombineReducers';
-  export { default as persistStore } from 'redux-persist/es/persistStore';
-  export { default as createMigrate } from 'redux-persist/es/createMigrate';
-  export { default as createTransform } from 'redux-persist/es/createTransform';
-  export { default as getStoredState } from 'redux-persist/es/getStoredState';
-  export { default as createPersistoid } from 'redux-persist/es/createPersistoid';
-  export { default as purgeStoredState } from 'redux-persist/es/purgeStoredState';
+declare module "reduxjs-toolkit-persist" {
+  export { default as persistReducer } from 'reduxjs-toolkit-persist/es/persistReducer';
+  export { default as persistCombineReducers } from 'reduxjs-toolkit-persist/es/persistCombineReducers';
+  export { default as persistStore } from 'reduxjs-toolkit-persist/es/persistStore';
+  export { default as createMigrate } from 'reduxjs-toolkit-persist/es/createMigrate';
+  export { default as createTransform } from 'reduxjs-toolkit-persist/es/createTransform';
+  export { default as getStoredState } from 'reduxjs-toolkit-persist/es/getStoredState';
+  export { default as createPersistoid } from 'reduxjs-toolkit-persist/es/createPersistoid';
+  export { default as purgeStoredState } from 'reduxjs-toolkit-persist/es/purgeStoredState';
 
-  export * from "redux-persist/es/constants";
-  export * from "redux-persist/es/types";
+  export * from "reduxjs-toolkit-persist/es/constants";
+  export * from "reduxjs-toolkit-persist/es/types";
 }

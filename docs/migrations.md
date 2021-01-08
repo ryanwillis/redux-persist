@@ -2,8 +2,8 @@
 
 ### Example with createMigrate
 ```js
-import { createMigrate, persistReducer, persistStore } from 'redux-persist'
-import storage from 'redux-persist/es/storage'
+import { createMigrate, persistReducer, persistStore } from 'reduxjs-toolkit-persist'
+import storage from 'reduxjs-toolkit-persist/es/storage'
 
 const migrations = {
   0: (state) => {

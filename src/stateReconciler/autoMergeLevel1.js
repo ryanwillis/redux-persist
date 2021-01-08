@@ -24,7 +24,7 @@ export default function autoMergeLevel1<State: Object>(
       if (originalState[key] !== reducedState[key]) {
         if (process.env.NODE_ENV !== 'production' && debug)
           console.log(
-            'redux-persist/stateReconciler: sub state for key `%s` modified, skipping.',
+            'reduxjs-toolkit-persist/stateReconciler: sub state for key `%s` modified, skipping.',
             key
           )
         return
@@ -41,7 +41,7 @@ export default function autoMergeLevel1<State: Object>(
     typeof inboundState === 'object'
   )
     console.log(
-      `redux-persist/stateReconciler: rehydrated keys '${Object.keys(
+      `reduxjs-toolkit-persist/stateReconciler: rehydrated keys '${Object.keys(
         inboundState
       ).join(', ')}'`
     )

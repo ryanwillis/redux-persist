@@ -1,5 +1,5 @@
-declare module "redux-persist/es/integration/getStoredStateMigrateV4" {
-  import { PersistConfig, Transform } from "redux-persist/es/types";
+declare module "reduxjs-toolkit-persist/es/integration/getStoredStateMigrateV4" {
+  import { PersistConfig, Transform } from "reduxjs-toolkit-persist/es/types";
 
   interface V4Storage {
     keys?(cb: (err: any, allKeys: Array<string>) => any): any;
@@ -19,7 +19,7 @@ declare module "redux-persist/es/integration/getStoredStateMigrateV4" {
   export default function getStoredState(v4Config: V4Config): (config: PersistConfig<any>) => Promise<object | undefined>;
 }
 
-declare module "redux-persist/lib/integration/getStoredStateMigrateV4" {
-  export * from "redux-persist/es/integration/getStoredStateMigrateV4";
-  export { default } from "redux-persist/es/integration/getStoredStateMigrateV4";
+declare module "reduxjs-toolkit-persist/lib/integration/getStoredStateMigrateV4" {
+  export * from "reduxjs-toolkit-persist/es/integration/getStoredStateMigrateV4";
+  export { default } from "reduxjs-toolkit-persist/es/integration/getStoredStateMigrateV4";
 }

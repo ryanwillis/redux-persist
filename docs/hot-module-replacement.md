@@ -2,11 +2,11 @@
 
 Hot Module Replacement (HMR) is a wonderful feature that is really useful in development environment. This allows you to update the code of your application without reloading the app and resetting the redux state.
 
-The key modification for using HMR with redux-persist, is the incoming hot reducer needs to be re-persisted via `persistReducer`.
+The key modification for using HMR with reduxjs-toolkit-persist, is the incoming hot reducer needs to be re-persisted via `persistReducer`.
 
 **configureStore.js**
 ```js
-import { persistReducer } from 'redux-persist'
+import { persistReducer } from 'reduxjs-toolkit-persist'
 import rootReducer from './path/to/reducer'
 
 export default () => {

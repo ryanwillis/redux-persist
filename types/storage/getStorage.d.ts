@@ -1,11 +1,11 @@
-declare module "redux-persist/es/storage/getStorage" {
-  import { Storage } from "redux-persist/es/types";
+declare module "reduxjs-toolkit-persist/es/storage/getStorage" {
+  import { Storage } from "reduxjs-toolkit-persist/es/types";
 
   // tslint:disable-next-line: strict-export-declare-modifiers
   export default function getStorage(type: string): Storage;
 }
 
-declare module "redux-persist/lib/storage/getStorage" {
-  export * from "redux-persist/es/storage/getStorage";
-  export { default } from "redux-persist/es/storage/getStorage";
+declare module "reduxjs-toolkit-persist/lib/storage/getStorage" {
+  export * from "reduxjs-toolkit-persist/es/storage/getStorage";
+  export { default } from "reduxjs-toolkit-persist/es/storage/getStorage";
 }

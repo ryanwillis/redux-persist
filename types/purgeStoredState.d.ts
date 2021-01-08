@@ -1,5 +1,5 @@
-declare module "redux-persist/es/purgeStoredState" {
-  import { PersistConfig } from "redux-persist/es/types";
+declare module "reduxjs-toolkit-persist/es/purgeStoredState" {
+  import { PersistConfig } from "reduxjs-toolkit-persist/es/types";
   /**
    * @desc Removes stored state.
    * @param config persist configuration
@@ -8,7 +8,7 @@ declare module "redux-persist/es/purgeStoredState" {
   export default function purgeStoredState<S>(config: PersistConfig<S>): any;
 }
 
-declare module "redux-persist/lib/purgeStoredState" {
-  export * from "redux-persist/es/purgeStoredState";
-  export { default } from "redux-persist/es/purgeStoredState";
+declare module "reduxjs-toolkit-persist/lib/purgeStoredState" {
+  export * from "reduxjs-toolkit-persist/es/purgeStoredState";
+  export { default } from "reduxjs-toolkit-persist/es/purgeStoredState";
 }

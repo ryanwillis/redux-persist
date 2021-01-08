@@ -5,7 +5,7 @@
 Example usage:
 
 ```js
-import { PersistGate } from 'redux-persist/es/integration/react'
+import { PersistGate } from 'reduxjs-toolkit-persist/es/integration/react'
 
 import configureStore from './store/configureStore'
 

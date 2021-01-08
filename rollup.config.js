@@ -8,7 +8,7 @@ const env = process.env.NODE_ENV
 const config = {
   output: {
     format: 'umd',
-    name: 'ReduxPersist',
+    name: 'ReduxJSToolkitPersist',
     exports: 'named',
     sourcemap: true,  
   },

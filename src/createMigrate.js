@@ -15,7 +15,7 @@ export default function createMigrate(
   ): Promise<PersistedState> {
     if (!state) {
       if (process.env.NODE_ENV !== 'production' && debug)
-        console.log('redux-persist: no inbound state, skipping migration')
+        console.log('reduxjs-toolkit-persist: no inbound state, skipping migration')
       return Promise.resolve(undefined)
     }
 
@@ -25,12 +25,12 @@ export default function createMigrate(
         : DEFAULT_VERSION
     if (inboundVersion === currentVersion) {
       if (process.env.NODE_ENV !== 'production' && debug)
-        console.log('redux-persist: versions match, noop migration')
+        console.log('reduxjs-toolkit-persist: versions match, noop migration')
       return Promise.resolve(state)
     }
     if (inboundVersion > currentVersion) {
       if (process.env.NODE_ENV !== 'production')
-        console.error('redux-persist: downgrading version is not supported')
+        console.error('reduxjs-toolkit-persist: downgrading version is not supported')
       return Promise.resolve(state)
     }
 
@@ -40,12 +40,12 @@ export default function createMigrate(
       .sort((a, b) => a - b)
 
     if (process.env.NODE_ENV !== 'production' && debug)
-      console.log('redux-persist: migrationKeys', migrationKeys)
+      console.log('reduxjs-toolkit-persist: migrationKeys', migrationKeys)
     try {
       let migratedState = migrationKeys.reduce((state, versionKey) => {
         if (process.env.NODE_ENV !== 'production' && debug)
           console.log(
-            'redux-persist: running migration for versionKey',
+            'reduxjs-toolkit-persist: running migration for versionKey',
             versionKey
           )
         return migrations[versionKey](state)

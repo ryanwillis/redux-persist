@@ -31,14 +31,14 @@ function hasLocalStorage() {
 
   try {
     let storage = self.localStorage
-    const testKey = `redux-persist localStorage test`
+    const testKey = `reduxjs-toolkit-persist localStorage test`
     storage.setItem(testKey, 'test')
     storage.getItem(testKey)
     storage.removeItem(testKey)
   } catch (e) {
     if (process.env.NODE_ENV !== 'production')
       console.warn(
-        `redux-persist localStorage test failed, persistence will be disabled.`
+        `reduxjs-toolkit-persist localStorage test failed, persistence will be disabled.`
       )
     return false
   }
@@ -120,7 +120,7 @@ function getStoredStateV4(v4Config: V4Config) {
       if (err) {
         if (process.env.NODE_ENV !== 'production')
           console.warn(
-            'redux-persist/getStoredState: Error in storage.getAllKeys'
+            'reduxjs-toolkit-persist/getStoredState: Error in storage.getAllKeys'
           )
         return reject(err)
       }
@@ -136,7 +136,7 @@ function getStoredStateV4(v4Config: V4Config) {
         storage.getItem(createStorageKey(key), (err, serialized) => {
           if (err && process.env.NODE_ENV !== 'production')
             console.warn(
-              'redux-persist/getStoredState: Error restoring data for key:',
+              'reduxjs-toolkit-persist/getStoredState: Error restoring data for key:',
               key,
               err
             )
@@ -158,7 +158,7 @@ function getStoredStateV4(v4Config: V4Config) {
       } catch (err) {
         if (process.env.NODE_ENV !== 'production')
           console.warn(
-            'redux-persist/getStoredState: Error restoring data for key:',
+            'reduxjs-toolkit-persist/getStoredState: Error restoring data for key:',
             key,
             err
           )

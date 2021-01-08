@@ -16,14 +16,14 @@ function hasStorage(storageType) {
 
   try {
     let storage = self[storageType]
-    const testKey = `redux-persist ${storageType} test`
+    const testKey = `reduxjs-toolkit-persist ${storageType} test`
     storage.setItem(testKey, 'test')
     storage.getItem(testKey)
     storage.removeItem(testKey)
   } catch (e) {
     if (process.env.NODE_ENV !== 'production')
       console.warn(
-        `redux-persist ${storageType} test failed, persistence will be disabled.`
+        `reduxjs-toolkit-persist ${storageType} test failed, persistence will be disabled.`
       )
     return false
   }
@@ -36,7 +36,7 @@ export default function getStorage(type: string): Storage {
   else {
     if (process.env.NODE_ENV !== 'production') {
       console.error(
-        `redux-persist failed to create sync storage. falling back to noop storage.`
+        `reduxjs-toolkit-persist failed to create sync storage. falling back to noop storage.`
       )
     }
     return noopStorage

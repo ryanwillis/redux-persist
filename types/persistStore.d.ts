@@ -1,6 +1,6 @@
-declare module "redux-persist/es/persistStore" {
+declare module "reduxjs-toolkit-persist/es/persistStore" {
   import { Store } from '@reduxjs/toolkit';
-  import { PersistorOptions, Persistor } from "redux-persist/es/types";
+  import { PersistorOptions, Persistor } from "reduxjs-toolkit-persist/es/types";
 
   /**
    * @desc Creates a persistor for a given store.
@@ -12,7 +12,7 @@ declare module "redux-persist/es/persistStore" {
   export default function persistStore(store: Store, persistorOptions?: PersistorOptions | null, callback?: () => any): Persistor;
 }
 
-declare module "redux-persist/lib/persistStore" {
-  export * from "redux-persist/es/persistStore";
-  export { default } from "redux-persist/es/persistStore";
+declare module "reduxjs-toolkit-persist/lib/persistStore" {
+  export * from "reduxjs-toolkit-persist/es/persistStore";
+  export { default } from "reduxjs-toolkit-persist/es/persistStore";
 }

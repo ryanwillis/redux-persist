@@ -36,7 +36,7 @@ export default function persistReducer<State: Object, Action: Object>(
     if (!config.key) throw new Error('key is required in persistor config')
     if (!config.storage)
       throw new Error(
-        "redux-persist: config.storage is required. Try using one of the provided storage engines `import storage from 'redux-persist/lib/storage'`"
+        "reduxjs-toolkit-persist: config.storage is required. Try using one of the provided storage engines `import storage from 'reduxjs-toolkit-persist/lib/storage'`"
       )
   }
 
@@ -73,7 +73,7 @@ export default function persistReducer<State: Object, Action: Object>(
         // dev warning if we are already sealed
         if (process.env.NODE_ENV !== 'production' && _sealed)
           console.error(
-            `redux-persist: rehydrate for "${
+            `reduxjs-toolkit-persist: rehydrate for "${
               config.key
             }" called after timeout.`,
             payload,
@@ -92,7 +92,7 @@ export default function persistReducer<State: Object, Action: Object>(
             _rehydrate(
               undefined,
               new Error(
-                `redux-persist: persist timed out for persist key "${
+                `reduxjs-toolkit-persist: persist timed out for persist key "${
                   config.key
                 }"`
               )
@@ -120,7 +120,7 @@ export default function persistReducer<State: Object, Action: Object>(
         typeof action.register !== 'function'
       )
         throw new Error(
-          'redux-persist: either rehydrate or register is not a function on the PERSIST action. This can happen if the action is being replayed. This is an unexplored use case, please open an issue and we will figure out a resolution.'
+          'reduxjs-toolkit-persist: either rehydrate or register is not a function on the PERSIST action. This can happen if the action is being replayed. This is an unexplored use case, please open an issue and we will figure out a resolution.'
         )
 
       action.register(config.key)
@@ -134,7 +134,7 @@ export default function persistReducer<State: Object, Action: Object>(
             },
             migrateErr => {
               if (process.env.NODE_ENV !== 'production' && migrateErr)
-                console.error('redux-persist: migration error', migrateErr)
+                console.error('reduxjs-toolkit-persist: migration error', migrateErr)
               _rehydrate(undefined, migrateErr)
             }
           )

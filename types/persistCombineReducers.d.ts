@@ -1,7 +1,7 @@
-declare module "redux-persist/es/persistCombineReducers" {
+declare module "reduxjs-toolkit-persist/es/persistCombineReducers" {
   import { Action, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
-  import { PersistPartial } from "redux-persist/es/persistReducer";
-  import { PersistConfig } from "redux-persist/es/types";
+  import { PersistPartial } from "reduxjs-toolkit-persist/es/persistReducer";
+  import { PersistConfig } from "reduxjs-toolkit-persist/es/types";
 
   /**
    * @desc It provides a way of combining the reducers, replacing redux's @see combineReducers
@@ -13,7 +13,7 @@ declare module "redux-persist/es/persistCombineReducers" {
   export default function persistCombineReducers<S, A extends Action = Action>(config: PersistConfig<S>, reducers: ReducersMapObject<S, A>): Reducer<S & PersistPartial, A>;
 }
 
-declare module "redux-persist/lib/persistCombineReducers" {
-  export * from "redux-persist/es/persistCombineReducers";
-  export { default } from "redux-persist/es/persistCombineReducers";
+declare module "reduxjs-toolkit-persist/lib/persistCombineReducers" {
+  export * from "reduxjs-toolkit-persist/es/persistCombineReducers";
+  export { default } from "reduxjs-toolkit-persist/es/persistCombineReducers";
 }

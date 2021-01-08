@@ -15,7 +15,7 @@ export default function purgeStoredState(config: PersistConfig) {
 function warnIfRemoveError(err) {
   if (err && process.env.NODE_ENV !== 'production') {
     console.error(
-      'redux-persist/purgeStoredState: Error purging data stored state',
+      'reduxjs-toolkit-persist/purgeStoredState: Error purging data stored state',
       err
     )
   }

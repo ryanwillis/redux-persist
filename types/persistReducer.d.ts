@@ -1,6 +1,6 @@
-declare module "redux-persist/es/persistReducer" {
+declare module "reduxjs-toolkit-persist/es/persistReducer" {
   import { Action, Reducer } from "@reduxjs/toolkit";
-  import { PersistState, PersistConfig } from "redux-persist/es/types";
+  import { PersistState, PersistConfig } from "reduxjs-toolkit-persist/es/types";
 
   interface PersistPartial {
     _persist: PersistState;
@@ -16,7 +16,7 @@ declare module "redux-persist/es/persistReducer" {
   
 }
 
-declare module "redux-persist/lib/persistReducer" {
-  export * from "redux-persist/es/persistReducer";
-  export { default } from "redux-persist/es/persistReducer";
+declare module "reduxjs-toolkit-persist/lib/persistReducer" {
+  export * from "reduxjs-toolkit-persist/es/persistReducer";
+  export { default } from "reduxjs-toolkit-persist/es/persistReducer";
 }
