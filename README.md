@@ -1,40 +1,28 @@
-# Redux Persist
+# Redux Toolkit Persist
 
-Persist and rehydrate a redux store.
-
-[![build status](https://img.shields.io/travis/rt2zz/redux-persist/master.svg?style=flat-square)](https://travis-ci.org/rt2zz/redux-persist) [![npm version](https://img.shields.io/npm/v/redux-persist.svg?style=flat-square)](https://www.npmjs.com/package/redux-persist) [![npm downloads](https://img.shields.io/npm/dm/redux-persist.svg?style=flat-square)](https://www.npmjs.com/package/redux-persist)
-[![#redux-persist on Discord](https://img.shields.io/discord/102860784329052160.svg)](https://discord.gg/ExrEvmv)
-
-## v6 upgrade
-**Web**: no breaking changes
-**React Native**: Users must now explicitly pass their storage engine in. e.g.
-```js
-import AsyncStorage from '@react-native-community/async-storage';
-
-const persistConfig = {
-  //...
-  storage: AsyncStorage
-}
-```
+Persist and rehydrate a redux store. This is a fork of [redux-persist](https://github.com/rt2zz/redux-persist) that implements [@reduxjs/toolkit](https://github.com/reduxjs/redux-toolkit) (replacing the core [redux](https://github.com/reduxjs/redux) dependency) as well as upgrading various dependencies to more recent versions.
 
 ## Quickstart
-`npm install redux-persist`
+
+`npm install reduxjs-toolkit-persist`
 
 Usage Examples:
+
 1. [Basic Usage](#basic-usage)
-2. [Nested Persists](#nested-persists)
-3. [Hot Module Replacement](./docs/hot-module-replacement.md)
-4. Code Splitting [coming soon]
+2. [Redux Toolkit Usage](#redux-toolkit-usage)
+3. [Nested Persists](#nested-persists)
+4. [Hot Module Replacement](./docs/hot-module-replacement.md)
 
 #### Basic Usage
+
 Basic usage involves adding `persistReducer` and `persistStore` to your setup. **IMPORTANT** Every app needs to decide how many levels of state they want to "merge". The default is 1 level. Please read through the [state reconciler docs](#state-reconciler) for more information.
 
 ```js
 // configureStore.js
 
-import { createStore } from 'redux'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { createStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'reduxjs-toolkit-persist'
+import storage from 'reduxjs-toolkit-persist/lib/storage' // defaults to localStorage for web
 
 import rootReducer from './reducers'
 
@@ -55,7 +43,7 @@ export default () => {
 If you are using react, wrap your root component with [PersistGate](./docs/PersistGate.md). This delays the rendering of your app's UI until your persisted state has been retrieved and saved to redux. **NOTE** the `PersistGate` loading prop can be null, or any react instance, e.g. `loading={<Loading />}`
 
 ```js
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from 'reduxjs-toolkit-persist/integration/react'
 
 // ... normal setup, create store and persistor, import components etc.
 
@@ -70,12 +58,108 @@ const App = () => {
 };
 ```
 
+#### Redux Toolkit Usage
+
+Redux Toolkit gives us more options. This example will use [createSlice](https://redux-toolkit.js.org/api/createSlice) and [configureStore](https://redux-toolkit.js.org/api/configureStore).
+
+```js
+// reducers/count.ts
+
+import {createSlice} from '@reduxjs/toolkit';
+
+export interface CountState {
+  count: number
+};
+
+const defaultState : CountState = {
+  count: 0,
+};
+
+const slice = createSlice({
+  name: 'count',
+  initialState: defaultState,
+  reducers: {
+    increment: (state: CountState, action) => {
+      state.count++;
+    },
+    decrement: (state: CountState, action) => {
+      state.count--;
+    }
+  }
+});
+
+export const { increment, decrement } = slice.actions;
+
+export default slice.reducer;
+```
+
+```js
+// store.js
+
+import { combineReducers, configureStore, getDefaultMiddleware, Reducer } from '@reduxjs/toolkit';
+import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'reduxjs-toolkit-persist';
+import storage from 'reduxjs-toolkit-persist/lib/storage'
+import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
+import countReducer from './reducers/count';
+import anotherReducer from './reducers/another';
+
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+  stateReconciler: autoMergeLevel1,
+};
+
+const reducers = combineReducers({
+  count: countReducer,
+  another: anotherReducer
+});
+
+const _persistedReducer = persistReducer(persistConfig, reducers as Reducer);
+
+export const store = configureStore({
+  reducer: _persistedReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [
+        FLUSH,
+        REHYDRATE,
+        PAUSE,
+        PERSIST,
+        PURGE,
+        REGISTER
+      ],
+    },
+  }),
+});
+```
+
+Things to note in the example above:
+
+###### Ignored Actions
+
+You must ignore the persistance actions when using `configureStore`.
+
+###### Reducer Type
+
+When calling `persistReducer` directly on a value generated by `createSlice` or `combineReducers`, typescript complains. Asserting the `Reducer` type works, as above. Alternatively, you can use `persistCombineReducers` in place of `combineReducers` without having to assert the value, like so:
+
+```js
+const _persistedReducer = persistCombineReducers(
+  persistConfig,
+  {
+    count: countReducer,
+    another: anotherReducer
+  }
+);
+```
+
 ## API
+
 [Full API](./docs/api.md)
 
 #### `persistReducer(config, reducer)`
   - arguments
-    - [**config**](https://github.com/rt2zz/redux-persist/blob/master/src/types.js#L13-L27) *object*
+    - [**config**](https://github.com/ryanwillis/reduxjs-toolkit-persist/blob/master/src/types.js#L13-L27) *object*
       - required config: `key, storage`
       - notable other config: `whitelist, blacklist, version, stateReconciler, debug`
     - **reducer** *function*
@@ -261,13 +345,10 @@ const persistConfig = {
 - **[redux-persist-webextension-storage](https://github.com/ssorallen/redux-persist-webextension-storage)** Storage engine for browser (Chrome, Firefox) web extension storage
 - **[@bankify/redux-persist-realm](https://github.com/bankifyio/redux-persist-realm)** Storage engine for Realm database, you will need to install Realm first
 - **[redux-persist-pouchdb](https://github.com/yanick/redux-persist-pouchdb)** Storage engine for PouchDB.
+- **[redix-persist-capacitor](https://github.com/ryanwillis/redux-persist-capacitor)** Storage engine for [Capacitor](https://github.com/ionic-team/capacitor).
 - **custom** any conforming storage api implementing the following methods: `setItem` `getItem` `removeItem`. (**NB**: These methods must support promises)
 
 ## Community
-
-### Chat Room
-
-[![#redux-persist on Discord](https://img.shields.io/discord/102860784329052160.svg)](https://discord.gg/ExrEvmv) #redux-persist channel in the [Reactiflux](https://www.reactiflux.com/) Discord
 
 ### Blog articles from the community
 
