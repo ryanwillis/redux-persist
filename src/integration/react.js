@@ -16,12 +16,12 @@ type State = {
 
 export class PersistGate extends PureComponent<Props, State> {
   /*
-  static defaultProps = {
+  static defaultProps : Props = {
     children: null,
-    loading: null,
+    loading: null
   }
   */
-  
+  props: Props
   state : Object = {
     bootstrapped: false,
   }
@@ -29,7 +29,7 @@ export class PersistGate extends PureComponent<Props, State> {
 
   componentDidMount() {
     this._unsubscribe = this.props.persistor.subscribe(
-      this.handlePersistorState
+      this.handlePersistorState.bind(this)
     )
     this.handlePersistorState()
   }
@@ -52,7 +52,7 @@ export class PersistGate extends PureComponent<Props, State> {
     this._unsubscribe && this._unsubscribe()
   }
 
-  render() : Node | any {
+  render() : Node  {
     if (process.env.NODE_ENV !== 'production') {
       if (typeof this.props.children === 'function' && this.props.loading)
         console.error(
