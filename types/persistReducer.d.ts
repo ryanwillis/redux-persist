@@ -1,5 +1,5 @@
 declare module "reduxjs-toolkit-persist/es/persistReducer" {
-  import { Action, Reducer } from "@reduxjs/toolkit";
+  import { AnyAction, Reducer } from "@reduxjs/toolkit";
   import { PersistState, PersistConfig } from "reduxjs-toolkit-persist/es/types";
 
   interface PersistPartial {
@@ -12,7 +12,7 @@ declare module "reduxjs-toolkit-persist/es/persistReducer" {
    * @param baseReducer reducer used to persist the state
    */
   // tslint:disable-next-line: strict-export-declare-modifiers
-  export default function persistReducer<S, A extends Action = Action>(config: PersistConfig<S>, baseReducer: Reducer<S, A>): Reducer<S & PersistPartial, A>;
+  export default function persistReducer<S, A extends AnyAction>(config: PersistConfig<S>, baseReducer: Reducer<S, A>): Reducer<S & PersistPartial, A>;
   
 }
 

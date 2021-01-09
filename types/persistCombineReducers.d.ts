@@ -1,5 +1,5 @@
 declare module "reduxjs-toolkit-persist/es/persistCombineReducers" {
-  import { Action, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+  import { AnyAction, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
   import { PersistPartial } from "reduxjs-toolkit-persist/es/persistReducer";
   import { PersistConfig } from "reduxjs-toolkit-persist/es/types";
 
@@ -10,7 +10,7 @@ declare module "reduxjs-toolkit-persist/es/persistCombineReducers" {
    * @returns reducer
    */
   // tslint:disable-next-line: strict-export-declare-modifiers
-  export default function persistCombineReducers<S, A extends Action = Action>(config: PersistConfig<S>, reducers: ReducersMapObject<S, A>): Reducer<S & PersistPartial, A>;
+  export default function persistCombineReducers<S, A extends AnyAction>(config: PersistConfig<S>, reducers: ReducersMapObject<S, A>): Reducer<S & PersistPartial, A>;
 }
 
 declare module "reduxjs-toolkit-persist/lib/persistCombineReducers" {
