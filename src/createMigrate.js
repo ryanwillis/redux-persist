@@ -2,12 +2,12 @@
 
 import { DEFAULT_VERSION } from './constants'
 
-import type { PersistedState, MigrationManifest } from './types'
+import type { PersistedState, PersistMigrate, MigrationManifest } from './types'
 
 export default function createMigrate(
   migrations: MigrationManifest,
   config?: { debug: boolean }
-) {
+) : PersistMigrate {
   let { debug } = config || {}
   return function(
     state: PersistedState,

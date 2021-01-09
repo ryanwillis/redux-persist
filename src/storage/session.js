@@ -1,5 +1,8 @@
 // @flow
 
 import createWebStorage from './createWebStorage'
+import type { Storage } from '../types';
 
-export default createWebStorage('session')
+const webStorage : Storage = createWebStorage('session');
+
+export default webStorage;

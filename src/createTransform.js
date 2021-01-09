@@ -1,5 +1,7 @@
 // @flow
 
+import type { Transform } from './types'
+
 type TransformConfig = {
   whitelist?: Array<string>,
   blacklist?: Array<string>,
@@ -11,7 +13,7 @@ export default function createTransform(
   // @NOTE outbound: transform state coming from storage, on its way to be rehydrated into redux
   outbound: ?Function,
   config: TransformConfig = {}
-) {
+) : Transform {
   let whitelist = config.whitelist || null
   let blacklist = config.blacklist || null
 

@@ -1,5 +1,8 @@
 // @flow
 
 import createWebStorage from './createWebStorage'
+import type { Storage } from '../types';
 
-export default createWebStorage('local')
+const webStorage : Storage = createWebStorage('local');
+
+export default webStorage;

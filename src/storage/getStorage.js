@@ -2,11 +2,11 @@
 
 import type { Storage } from '../types'
 
-function noop() {}
-let noopStorage = {
-  getItem: noop,
-  setItem: noop,
-  removeItem: noop,
+
+let noopStorage : Storage = {
+  getItem: ( key ) => {},
+  setItem: ( key, val ) => {},
+  removeItem: ( key ) => {}
 }
 
 function hasStorage(storageType) {

@@ -10,6 +10,9 @@ export type PersistedState = {
   _persist: PersistState,
 } | void
 
+export type PersistMigrate =
+(state: PersistedState, currentVersion: number) => Promise<PersistedState>;
+
 export type PersistConfig = {
   version?: number,
   storage: Object,
@@ -34,7 +37,7 @@ export type PersistorOptions = {
   manualPersist?: boolean
 }
 
-export type Storage = {
+export interface Storage {
   getItem: (string, ?(string) => any) => any,
   setItem: (string, string, ?() => any) => any,
   removeItem: (string, ?() => any) => any,
