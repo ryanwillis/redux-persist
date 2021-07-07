@@ -20,6 +20,7 @@ const config = {
       exclude: 'node_modules/**'
     }),
     replace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify(env)
     })
   ]

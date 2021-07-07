@@ -34,7 +34,7 @@ export class PersistGate extends PureComponent<Props, State> {
     this.handlePersistorState()
   }
 
-  handlePersistorState () {
+  handlePersistorState: Function = () => {
     const { persistor } = this.props
     let { bootstrapped } = persistor.getState()
     if (bootstrapped) {
