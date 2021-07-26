@@ -80,6 +80,7 @@
     "redux-mock-store": "^1.5.4",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.8",
+    "rollup-plugin-uglify": "git+https://github.com/ryanwillis/rollup-plugin-uglify.git",
     "sinon": "^11.1.1",
     "storage-memory": "0.0.2"
   },
