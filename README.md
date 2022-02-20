@@ -338,15 +338,10 @@ const persistConfig = {
 ```
 
 ## Storage Engines
-<<<<<<< HEAD
 - **localStorage** `import storage from 'reduxjs-toolkit-persist/lib/storage'`
 - **sessionStorage** `import storageSession from 'reduxjs-toolkit-persist/lib/storage/session'`
 - **AsyncStorage** react-native `import AsyncStorage from '@react-native-community/async-storage'`
 - **[localForage](https://github.com/mozilla/localForage)** recommended for web
-=======
-- **localStorage** `import storage from 'redux-persist/lib/storage'`
-- **sessionStorage** `import storageSession from 'redux-persist/lib/storage/session'`
->>>>>>> d8b01a085e3679db43503a3858e8d4759d6f22fa
 - **[electron storage](https://github.com/psperber/redux-persist-electron-storage)** Electron support via [electron store](https://github.com/sindresorhus/electron-store)
 - **[redux-persist-cookie-storage](https://github.com/abersager/redux-persist-cookie-storage)** Cookie storage engine, works in browser and Node.js, for universal / isomorphic apps
 - **[redux-persist-expo-filesystem](https://github.com/t73liu/redux-persist-expo-filesystem)** react-native, similar to redux-persist-filesystem-storage but does not require linking or ejecting CRNA/Expo app. Only available if using Expo SDK (Expo, create-react-native-app, standalone).
