@@ -4,6 +4,21 @@ All notable changes to this project (after v6.1.0) should be documented in this 
 The format is (mostly) based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.2.1] - 2022-02-20
+### changed
+- Added @reduxjs/toolkit dev dependecy and types
+
+## [7.2.0] - 2022-02-19
+### changed
+- Merged upstream changes from rt2zz/redux-persist
+
+
+## [7.1.0] - 2022-02-19
+### changed
+- Merged security pull requests from dependabot updating immer, path-parse and trim-off-newlines
+- Merged pull request #8 improving typing on PersistConfig black/whitelist
+- Merged pull request #9 typo fix for README
+
 ## [7.0.1] - 2021-01-08
 ### changed
 - Added return types for `createMigrate`, `createTransform` and `getStoredState`.
