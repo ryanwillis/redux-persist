@@ -28,3 +28,5 @@ The following is a history of size estimates in bytes. This is calculated as a r
 **v7.0.6**: 25375 Bytes  
 **v7.0.7**: 25375 Bytes  
 
+**v7.1.0**: 17589 Bytes  
+**v7.2.0**: 17589 Bytes  
