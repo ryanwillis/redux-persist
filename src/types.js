@@ -18,8 +18,8 @@ export type PersistConfig = {
   storage: Object,
   key: string,
   keyPrefix?: string, // @TODO remove in v6
-  blacklist?: Array<string>,
-  whitelist?: Array<string>,
+  denylist?: Array<string>,
+  allowlist?: Array<string>,
   transforms?: Array<Transform>,
   throttle?: number,
   migrate?: (PersistedState, number) => Promise<PersistedState>,

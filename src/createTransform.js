@@ -3,8 +3,8 @@
 import type { Transform } from './types'
 
 type TransformConfig = {
-  whitelist?: Array<string>,
-  blacklist?: Array<string>,
+  allowlist?: Array<string>,
+  denylist?: Array<string>,
 }
 
 export default function createTransform(
@@ -14,22 +14,22 @@ export default function createTransform(
   outbound: ?Function,
   config: TransformConfig = {}
 ) : Transform {
-  let whitelist = config.whitelist || null
-  let blacklist = config.blacklist || null
+  let allowlist = config.allowlist || null
+  let denylist = config.denylist || null
 
-  function whitelistBlacklistCheck(key) {
-    if (whitelist && whitelist.indexOf(key) === -1) return true
-    if (blacklist && blacklist.indexOf(key) !== -1) return true
+  function allowlistdenylistCheck(key) {
+    if (allowlist && allowlist.indexOf(key) === -1) return true
+    if (denylist && denylist.indexOf(key) !== -1) return true
     return false
   }
 
   return {
     in: (state: Object, key: string, fullState: Object) =>
-      !whitelistBlacklistCheck(key) && inbound
+      !allowlistdenylistCheck(key) && inbound
         ? inbound(state, key, fullState)
         : state,
     out: (state: Object, key: string, fullState: Object) =>
-      !whitelistBlacklistCheck(key) && outbound
+      !allowlistdenylistCheck(key) && outbound
         ? outbound(state, key, fullState)
         : state,
   }
