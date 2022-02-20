@@ -1,6 +1,6 @@
 {
   "name": "reduxjs-toolkit-persist",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "description": "persist and rehydrate redux stores",
   "main": "lib/index.js",
   "module": "es/index.js",
