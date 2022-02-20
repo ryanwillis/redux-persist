@@ -34,7 +34,7 @@ export default function createPersistoid(config: PersistConfig<any>): Persistoid
   const update = (state: KeyAccessState) => {
     // add any changed keys to the queue
     Object.keys(state).forEach(key => {
-      if (!passallowlistdenylist(key)) return // is keyspace ignored? noop
+      if (!passWhitelistBlacklist(key)) return // is keyspace ignored? noop
       if (lastState[key] === state[key]) return // value unchanged? noop
       if (keysToProcess.indexOf(key) !== -1) return // is key already queued? noop
       keysToProcess.push(key) // add key to queue
@@ -45,7 +45,7 @@ export default function createPersistoid(config: PersistConfig<any>): Persistoid
     Object.keys(lastState).forEach(key => {
       if (
         state[key] === undefined &&
-        passallowlistdenylist(key) &&
+        passWhitelistBlacklist(key) &&
         keysToProcess.indexOf(key) === -1 &&
         lastState[key] !== undefined
       ) {
@@ -108,15 +108,10 @@ export default function createPersistoid(config: PersistConfig<any>): Persistoid
       .catch(onWriteFail)
   }
 
-<<<<<<< HEAD:src/createPersistoid.js
-  function passallowlistdenylist(key) {
-    if (allowlist && allowlist.indexOf(key) === -1 && key !== '_persist')
-=======
   function passWhitelistBlacklist(key: string) {
     if (whitelist && whitelist.indexOf(key) === -1 && key !== '_persist')
->>>>>>> d8b01a085e3679db43503a3858e8d4759d6f22fa:src/createPersistoid.ts
       return false
-    if (denylist && denylist.indexOf(key) !== -1) return false
+    if (blacklist && blacklist.indexOf(key) !== -1) return false
     return true
   }
 
