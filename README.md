@@ -134,10 +134,11 @@ export const store = configureStore({
 });
 ```
 
-As an alternative to using `combineReducers` followed by `persistReducer`, you can use a single call to `persistCombinReducers` like so:
+As an alternative to using `combineReducers` followed by `persistReducer`, you can use a single call to `persistCombineReducers` like so:
 
 ```js
-import { persistCombinReducers } from 
+import { persistCombineReducers } from 'reduxjs-toolkit-persist'
+
 const _persistedReducer = persistCombineReducers(
   persistConfig,
   {
