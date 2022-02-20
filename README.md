@@ -220,14 +220,14 @@ Redux persist ships with react integration as a convenience. The `PersistGate` c
 ## Denylist & Allowlist
 By Example:
 ```js
-// BLACKLIST
+// DENYLIST
 const persistConfig = {
   key: 'root',
   storage: storage,
   denylist: ['navigation'] // navigation will not be persisted
 };
 
-// WHITELIST
+// ALLOWLIST
 const persistConfig = {
   key: 'root',
   storage: storage,
