@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type TransformConfig = {
-  allowlist?: Array<string>,
-  denylist?: Array<string>,
+  whitelist?: Array<string>,
+  blacklist?: Array<string>,
 }
 
 export default function createTransform(
