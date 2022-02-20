@@ -355,18 +355,7 @@ const persistConfig = {
 - **[redux-persist-weapp-storage](https://github.com/cuijiemmx/redux-casa/tree/master/packages/redux-persist-weapp-storage)** Storage engine for wechat mini program, also compatible with wepy
 - **[redux-persist-webextension-storage](https://github.com/ssorallen/redux-persist-webextension-storage)** Storage engine for browser (Chrome, Firefox) web extension storage
 - **[@bankify/redux-persist-realm](https://github.com/bankifyio/redux-persist-realm)** Storage engine for Realm database, you will need to install Realm first
-<<<<<<< HEAD
 - **[redux-persist-pouchdb](https://github.com/yanick/redux-persist-pouchdb)** Storage engine for PouchDB.
 - **[redix-persist-capacitor](https://github.com/ryanwillis/redux-persist-capacitor)** Storage engine for [Capacitor](https://github.com/ionic-team/capacitor).
 - **custom** any conforming storage api implementing the following methods: `setItem` `getItem` `removeItem`. (**NB**: These methods must support promises)
 
-## Community
-
-### Blog articles from the community
-=======
-- **custom** any conforming storage api implementing the following methods: `setItem` `getItem` `removeItem`. (**NB**: These methods must support promises)
-
-## Community & Contributing
->>>>>>> d8b01a085e3679db43503a3858e8d4759d6f22fa
-
-I will be updating this section shortly. If you have a pull request that you've got outstanding, please reach out and I will try to review it and get it integrated. As we've shifted to TypeScript, that may necessitate some changes, but I'm happy to help in that regard, wherever I can.
