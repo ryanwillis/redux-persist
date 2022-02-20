@@ -49,6 +49,7 @@ declare module "reduxjs-toolkit-persist/es/types" {
 
   interface PersistorOptions {
     enhancer?: StoreEnhancer<any>;
+    manualPersist?: boolean;
   }
 
   interface Storage {
