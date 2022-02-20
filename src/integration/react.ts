@@ -14,14 +14,12 @@ type State = {
 }
 
 export class PersistGate extends PureComponent<Props, State> {
-  /*
-  static defaultProps : Props = {
+  static defaultProps = {
     children: null,
     loading: null
   }
-  */
-  props: Props
-  state : Object = {
+
+  state = {
     bootstrapped: false,
   }
   _unsubscribe?: () => void
